@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-cms",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n web,api -c cyan,green \"npm run dev -w @portfolio/web\" \"npm run dev -w @portfolio/api\"",
+    "dev:web": "npm run dev -w @portfolio/web",
+    "dev:api": "npm run dev -w @portfolio/api",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "prisma:generate": "npm run prisma:generate -w @portfolio/api",
+    "prisma:migrate": "npm run prisma:migrate -w @portfolio/api"
+  },
+  "devDependencies": {
+    "concurrently": "latest"
+  }
+}
