@@ -1,6 +1,6 @@
-import { Mail } from 'lucide-react';
-import type { IconComponent } from '@/components/ui/icons/BrandIcons';
-import { GithubIcon, LinkedinIcon } from '@/components/ui/icons/BrandIcons';
+import { Mail } from "lucide-react";
+import type { IconComponent } from "@/components/ui/icons/BrandIcons";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/icons/BrandIcons";
 
 export interface NavLink {
   id: string;
@@ -8,20 +8,21 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'certificates', label: 'Certificates' },
-  { id: 'contact', label: 'Contact' },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
+  { id: "projects", label: "Projects" },
+  { id: "certificates", label: "Certificates" },
+  { id: "contact", label: "Contact" },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
 ];
 
 export interface SocialLinkItem {
@@ -31,7 +32,11 @@ export interface SocialLinkItem {
 }
 
 export const SOCIAL_LINKS: SocialLinkItem[] = [
-  { name: 'GitHub', href: '#', icon: GithubIcon },
-  { name: 'LinkedIn', href: '#', icon: LinkedinIcon },
-  { name: 'Email', href: 'mailto:arwa68525@gmail.com', icon: Mail },
+  { name: "GitHub", href: "https://github.com/arwamalherz-cmyk", icon: GithubIcon },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/arwa-m-alherz-5782273b0",
+    icon: LinkedinIcon,
+  },
+  { name: "Email", href: "mailto:arwamalherz@gmail.com", icon: Mail },
 ];
