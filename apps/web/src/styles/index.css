@@ -30,42 +30,95 @@
   --font-sans: "Thmanyah Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-background: #fcfcff;
+  /* Base surfaces: white / near-white */
+  --color-background: #f8fafc;
   --color-surface: #ffffff;
-  --color-primary: #7c3aed;
-  --color-primary-secondary: #8b5cf6;
-  --color-lavender: #ede9fe;
-  --color-text: #111827;
+
+  /* Accent: soft, professional blue (light to medium) */
+  --color-primary-light: #60a5fa;
+  --color-primary: #3b82f6;
+  --color-primary-secondary: #2563eb;
+  --color-primary-soft: #eef4ff;
+
+  /* Text: navy / near-black */
+  --color-text: #0f172a;
   --color-text-secondary: #64748b;
-  --color-border: #e8e7f0;
-  --color-navy: #0f1123;
-  --color-navy-light: #171a35;
+
+  --color-border: #e6ecf6;
+  --color-navy: #172554;
+  --color-navy-light: #1e3a8a;
 
   --animate-float: float 6s ease-in-out infinite;
+  --animate-idle-sway: idle-sway 3.8s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes idle-sway {
+    0%,
+    100% {
+      transform: rotate(-3.2deg);
+    }
+    50% {
+      transform: rotate(3.2deg);
+    }
   }
 }
 
-.dark {
-  --color-background: #0a0c17;
-  --color-surface: #14172c;
-  --color-lavender: rgba(139, 92, 246, 0.15);
-  --color-text: #f4f4f6;
-  --color-text-secondary: #94a3b8;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-navy: #171a35;
+/* Dark theme: near-black with a subtle navy tint; minimal and premium */
+.dark,
+[data-theme="dark"] {
+  --color-background: #070b12;
+  --color-surface: #0e1420;
+  --color-primary-light: #60a5fa;
+  --color-primary: #3b82f6;
+  --color-primary-secondary: #2563eb;
+  --color-primary-soft: rgba(96, 165, 250, 0.14);
+  --color-text: #f4f6fb;
+  --color-text-secondary: #9aa7bd;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-navy: #0a0f18;
+  --color-navy-light: #111826;
 }
 
 @layer base {
   html {
-    @apply scroll-smooth;
-    scroll-padding-top: 5rem;
+    @apply scroll-smooth bg-background;
+    scroll-padding-top: 6rem;
   }
 
   body {
-    @apply m-0 min-w-80 bg-background font-sans text-text antialiased transition-colors duration-200;
+    @apply m-0 min-w-80 font-sans text-text antialiased transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  /* Reusable brand gradient for headings; follows the active accent */
+  .text-gradient-brand {
+    background-image: linear-gradient(
+      115deg,
+      var(--color-primary-light),
+      var(--color-primary) 55%,
+      var(--color-primary-secondary)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(
+      120deg,
+      var(--color-primary-light),
+      var(--color-primary) 60%,
+      var(--color-primary-secondary)
+    );
   }
 }
